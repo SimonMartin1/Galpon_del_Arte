@@ -15,7 +15,7 @@ $mensaje .= "Asunto: " . $asunto . " \r\n";
 $mensaje .= "Mensaje: " . $_POST['mensaje'] . " \r\n";
 $mensaje .= "Enviado el " . date('d/m/Y', time());
 
-$para = 'simonmartinsposito08@gmail.com , galpon.arte@hotmail.com , chuecomartin@hotmail.com ';
+$para = 'simonmartinsposito08@gmail.com';
 $asunto = 'Mensaje de la web de GalponDelArte';
 
 mail($para, $asunto,($mensaje), $header);
