@@ -101,7 +101,7 @@ async function listar(URL){
     }
 }
 
-console.log(listar())
+console.log(listar(IMAGENES_URL))
 
 const imagenLight = $('.agregar-imagen');
 const contenedorLight = $('.imagen-light');
