@@ -105,7 +105,7 @@ async function galeria() {
 	$('.contenedor-galeria').empty();
 	data.forEach(element => {
 	const img = $('<img>')
-        .attr('src', `/front/assets/images/${element.imagen_path}`)
+        .attr('src', `assets/images/${element.imagen_path}`)
 		.attr('alt', `${element.titulo}`)
 		.addClass('img-galeria')
 	$('.contenedor-galeria').append(img);
