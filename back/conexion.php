@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$db   = 'gda_bd';
+$db   = 'gda_db';
 $user = 'admin';
 $pass = 'BisMuto385';
 $charset = 'utf8mb4';
