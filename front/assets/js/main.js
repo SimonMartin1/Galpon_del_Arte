@@ -88,9 +88,6 @@ const IMAGENES_URL = 'http://localhost/Galpon_del_Arte/back/getImagenes.php'
 
 		}
 
-})(jQuery);
-
-
 async function listar(URL){
     try {
         let data=null;
@@ -125,4 +122,8 @@ const aparecerImagen = (imagen)=>{
     contenedorLight.toggleClass('show');
     imagenLight.toggleClass('showImage')
 }
+
+})(jQuery);
+
+
 
