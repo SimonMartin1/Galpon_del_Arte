@@ -14,7 +14,6 @@ $options = [
 
 try {
     $pdo = new PDO($dsn, $user, $pass, $options);
-    echo "Conexión exitosa"; // Descomenta para probar
 } catch (\PDOException $e) {
     
     throw new \PDOException($e->getMessage(), (int)$e->getCode());

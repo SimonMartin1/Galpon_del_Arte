@@ -2,7 +2,7 @@
 
 (function($) {
 
-const IMAGENES_URL = 'http://localhost/Galpon_del_Arte/back/getImagenes.php'
+const IMAGENES_URL = '/Galpon_del_Arte/back/getImagenes.php'
 
 
 
@@ -99,7 +99,18 @@ async function listar(URL){
     }
 }
 
-console.log(listar(IMAGENES_URL))
+async function galeria() {
+	const data = await listar(IMAGENES_URL);
+	$('.contenedor-galeria').empty();
+	data.forEach(element => {
+	const img = $('img')
+        .attr('src', `${element.imagen_path}`)
+		.attr('alt', `${element.titulo}`)
+		.addClass('imagen-galeria')
+	$('.contenedor-galeria').append(img);
+	});
+
+}
 
 const imagenLight = $('.agregar-imagen');
 const contenedorLight = $('.imagen-light');
@@ -123,7 +134,7 @@ const aparecerImagen = (imagen)=>{
     contenedorLight.toggleClass('show');
     imagenLight.toggleClass('showImage')
 }
-
+a()
 })(jQuery);
 
 
