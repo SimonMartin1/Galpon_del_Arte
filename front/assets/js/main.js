@@ -101,12 +101,13 @@ async function listar(URL){
 
 async function galeria() {
 	const data = await listar(IMAGENES_URL);
+	console.log(data)
 	$('.contenedor-galeria').empty();
 	data.forEach(element => {
-	const img = $('img')
-        .attr('src', `${element.imagen_path}`)
+	const img = $('<img>')
+        .attr('src', `/front/assets/images/${element.imagen_path}`)
 		.attr('alt', `${element.titulo}`)
-		.addClass('imagen-galeria')
+		.addClass('img-galeria')
 	$('.contenedor-galeria').append(img);
 	});
 
@@ -118,7 +119,7 @@ const closeLight = $('.close2');
 
 
 $('.img-galeria').on('click',()=>{
-        aparecerImagen(imagen.attr('src'));
+        aparecerImagen($(this).attr('src'));
     })
 
 contenedorLight.on('click',(e)=>{
@@ -128,9 +129,8 @@ contenedorLight.on('click',(e)=>{
     }
 })
 
-
-const aparecerImagen = (imagen)=>{
-    imagenLight.src = imagen;
+function aparecerImagen(src){
+    imagenLight.src = src;
     contenedorLight.toggleClass('show');
     imagenLight.toggleClass('showImage')
 }
