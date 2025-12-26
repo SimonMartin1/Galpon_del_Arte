@@ -91,7 +91,8 @@ const IMAGENES_URL = 'http://localhost/Galpon_del_Arte/back/getImagenes.php'
 async function listar(URL){
     try {
         let data=null;
-        const res = await fetch(URL).then(data = await res.json())
+        const res = await fetch(URL)
+		data = await res.json();
         return data; 
     } catch (err) {
         console.error('Error al listar', err.message);
