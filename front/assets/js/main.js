@@ -2,12 +2,16 @@
 
 (function($) {
 
+const IMAGENES_URL = 'http://localhost/Galpon_del_Arte/back/getImagenes.php'
+
+
+
 	var	$window = $(window),
 		$body = $('body'),
 		$wrapper = $('#page-wrapper'),
 		$banner = $('#banner'),
-		$header = $('#header');
-		const $icono= document.querySelector("#icono");
+		$header = $('#header'),
+		$icono = $("#icono");
 
 	// Breakpoints.
 		breakpoints({
@@ -71,15 +75,15 @@
 			$banner.scrollex({
 				bottom:		$header.outerHeight() + 1,
 				terminate:	function() { $header.removeClass('alt');
-				$icono.classList.toggle("icono2") 
-				$icono.classList.add("navegacion");
+				$icono.toggleClass("icono2") 
+				$icono.addClass("navegacion");
 			},
 				enter:		function() { $header.addClass('alt');
-										$icono.classList.remove("navegacion") 
-										$icono.classList.add("icono2");},
+										$icono.removeClass("navegacion") 
+										$icono.addClass("icono2");},
 				leave:		function() { $header.removeClass('alt');
-				$icono.classList.remove("icono2") 
-				$icono.classList.add("navegacion"); }
+				$icono.removeClass("icono2") 
+				$icono.addClass("navegacion"); }
 			});
 
 		}
@@ -87,30 +91,38 @@
 })(jQuery);
 
 
+async function listar(URL){
+    try {
+        let data=null;
+        const res = await fetch(URL).then(data = await res.json())
+        return data; 
+    } catch (err) {
+        console.error('Error al listar', err.message);
+    }
+}
 
-const imagenes = document.querySelectorAll('.img-galeria')
-const imagenLight = document.querySelector('.agregar-imagen');
-const contenedorLight = document.querySelector('.imagen-light')
-const closeLight = document.querySelector('.close2')
+console.log(listar())
+
+const imagenLight = $('.agregar-imagen');
+const contenedorLight = $('.imagen-light');
+const closeLight = $('.close2');
 
 
-imagenes.forEach(imagen => {
-    imagen.addEventListener('click',()=>{
-        aparecerImagen(imagen.getAttribute('src'));
+$('.img-galeria').on('click',()=>{
+        aparecerImagen(imagen.attr('src'));
     })
-});
 
-contenedorLight.addEventListener('click',(e)=>{
+contenedorLight.on('click',(e)=>{
     if(e.target !== imagenLight){
-        contenedorLight.classList.toggle('show')
-        imagenLight.classList.toggle('showImage')
+        contenedorLight.toggleClass('show')
+        imagenLight.toggleClass('showImage')
     }
 })
 
 
 const aparecerImagen = (imagen)=>{
     imagenLight.src = imagen;
-    contenedorLight.classList.toggle('show')
-    imagenLight.classList.toggle('showImage')
+    contenedorLight.toggleClass('show');
+    imagenLight.toggleClass('showImage')
 }
 
