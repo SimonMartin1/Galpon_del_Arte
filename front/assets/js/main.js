@@ -134,7 +134,7 @@ const aparecerImagen = (imagen)=>{
     contenedorLight.toggleClass('show');
     imagenLight.toggleClass('showImage')
 }
-a()
+galeria()
 })(jQuery);
 
 
