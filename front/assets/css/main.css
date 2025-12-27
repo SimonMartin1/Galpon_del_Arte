@@ -4016,7 +4016,7 @@ input, select, textarea {
     cursor: pointer;
 }
 
-.imagen-light{
+.img-light{
     position: fixed;
     display: flex;
     align-items: center;

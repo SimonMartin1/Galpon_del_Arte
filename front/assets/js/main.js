@@ -101,39 +101,26 @@ async function listar(URL){
 
 async function galeria() {
 	const data = await listar(IMAGENES_URL);
-	console.log(data)
+	const data_filtered= data.filter(i => i.destacada == 0);
 	$('.contenedor-galeria').empty();
-	data.forEach(element => {
+	data_filtered.forEach(element => {
 	const img = $('<img>')
         .attr('src', `assets/images/${element.imagen_path}`)
 		.attr('alt', `${element.titulo}`)
+		.attr('data-bs-toggle','modal')
+        .attr('data-bs-target','#modal')
 		.addClass('img-galeria')
 	$('.contenedor-galeria').append(img);
 	});
 
 }
 
-const imagenLight = $('.agregar-imagen');
-const contenedorLight = $('.imagen-light');
-const closeLight = $('.close2');
-
 
 $('.img-galeria').on('click',()=>{
-        aparecerImagen($(this).attr('src'));
+	$(this).addClass('img-light');
     })
 
-contenedorLight.on('click',(e)=>{
-    if(e.target !== imagenLight){
-        contenedorLight.toggleClass('show')
-        imagenLight.toggleClass('showImage')
-    }
-})
 
-function aparecerImagen(src){
-    imagenLight.src = src;
-    contenedorLight.toggleClass('show');
-    imagenLight.toggleClass('showImage')
-}
 galeria()
 })(jQuery);
 
