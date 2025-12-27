@@ -117,7 +117,7 @@ async function galeria() {
 
 
 $('.img-galeria').on('click',()=>{
-	$(this).addClass('img-light');
+	$('#mostrar').attr('src',$(this).getAttribute('src'))
     })
 
 
