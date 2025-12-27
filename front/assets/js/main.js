@@ -107,19 +107,26 @@ async function galeria() {
 	const img = $('<img>')
         .attr('src', `assets/images/${element.imagen_path}`)
 		.attr('alt', `${element.titulo}`)
-		.attr('data-bs-toggle','modal')
-        .attr('data-bs-target','#modal')
 		.addClass('img-galeria')
 	$('.contenedor-galeria').append(img);
 	});
-
 }
 
 
-$('.img-galeria').on('click',()=>{
-	$('#mostrar').attr('src',$(this).getAttribute('src'))
-    })
 
+$(document).on('click', '.img-galeria', function(){
+	const src = $(this).attr('src');
+	$('#mostrar').attr('src', src);
+	$('.img-light').addClass('show');
+	$('.agregar-imagen').addClass('showImage');
+});
+
+
+$(document).on('click', '.close2, .img-light', function(){
+	if ($(e.target).hasClass('agregar-imagen')) return;
+	$('.img-light').removeClass('show');
+	$('.agregar-imagen').removeClass('showImage').attr('src', '');
+});
 
 galeria()
 })(jQuery);
