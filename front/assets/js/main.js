@@ -182,17 +182,9 @@ $('#select-item').on('change', async()=>{
 	listar_contenido()
 });
 
-    if (window.location.pathname.includes('index.html')) {
-		mostrar_destacado();
-	}
-
-	if (window.location.pathname.includes('imagenes.html')) {
-		galeria()
-	}
-	
-    if (window.location.pathname.includes('selectDestacado.html')) {
-		listar_item();
-	}
+	mostrar_destacado();
+	galeria()
+	listar_item();
 
 })(jQuery);
 
