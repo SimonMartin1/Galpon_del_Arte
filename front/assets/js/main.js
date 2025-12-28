@@ -139,10 +139,10 @@ async function listar_contenido(){
 	const data = await listar(DESTACADO_URL);
 	const selectedOption= $('#select-item').find('option:selected');
 	const data_filter= data.filter(e => e.id == selectedOption.attr('value'));
-	$('#select-tittle').empty();
-	$('#select-description').empty();
-	$('#select-tittle').text(data_filter[0].titulo);
-	$('#select-description').text(data_filter[0].descripcion);
+	$('#selected-tittle').empty();
+	$('#selected-description').empty();
+	$('#selected-tittle').text(data_filter[0].titulo);
+	$('#selected-description').text(data_filter[0].descripcion);
 	$('#response').removeClass('hide');
 }
 
