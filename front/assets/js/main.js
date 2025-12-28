@@ -151,10 +151,10 @@ async function listar_contenido(){
 async function mostrar_destacado(){
 	const data = await listar(DESTACADO_URL);
 	data.forEach(e=> {
-		$('.'+feature-tittle+e.id).empty()
-		$('.'+feature-tittle+e.id).text(e.titulo)
-		$('.'+feature-text+e.id).empty()
-		$('.'+feature-text+e.id).text(e.descripcion)
+		$('.'+'feature-tittle'+e.id).empty()
+		$('.'+'feature-tittle'+e.id).text(e.titulo)
+		$('.'+'feature-text'+e.id).empty()
+		$('.'+'feature-text'+e.id).text(e.descripcion)
 	});
 }
 
