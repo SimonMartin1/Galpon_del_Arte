@@ -124,6 +124,7 @@ async function listar_imagenes(){
 
 async function listar_item(){
 	$('#select-item').empty();
+	$('#select-item').append('<option selected disabled>--Seleccionar--</option>');
 	for(i=1; i<13;i++){
 		const el = $('<option>').text(i);
 		$('#select-item').append(el);
