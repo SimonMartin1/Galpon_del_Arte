@@ -123,15 +123,16 @@ async function listar_imagenes(){
 }
 
 async function listar_item(){
+	const data = await listar(DESTACADO_URL);
 	$('#select-item').empty();
 	const defaultOption = $('<option value="0" selected disabled>--Seleccionar--</option>');
 	$('#select-item').append(defaultOption);
-	for(i=1; i<13;i++){
+	data.forEach(e=>{
 		const el = $('<option>')
-		.attr('value',i)
-		.text(i);
+		.attr('value',e.id)
+		.text(e.id+'- '+e.titulo);
 		$('#select-item').append(el);
-	}
+	});
 }
 
 
@@ -143,9 +144,19 @@ async function listar_contenido(){
 	$('#selected-description').empty();
 	$('#selected-titt').val(data_filter[0].titulo);
 	$('#selected-description').text(data_filter[0].descripcion);
+	listar_imagenes();
 	$('#response').removeClass('hide');
 }
 
+async function mostrar_destacado(){
+	const data = await listar(DESTACADO_URL);
+	data.forEach(e=> {
+		$('#'+feature-tittle+e.id).empty()
+		$('#'+feature-tittle+e.id).text(e.titulo)
+		$('#'+feature-text+e.id).empty()
+		$('#'+feature-text+e.id).text(e.descripcion)
+	});
+}
 
 
 $(document).on('click', '.img-galeria', async function(){
@@ -167,13 +178,22 @@ $(document).on('click', '.close2, .img-light', function(e){
 	}, 200);
 });
 
-$('#select-item').on('change', ()=>{
+$('#select-item').on('change', async()=>{
 	listar_contenido()
 });
 
-galeria()
-listar_imagenes();
-listar_item();
+    if (window.location.pathname.includes('index.html')) {
+		mostrar_destacado();
+	}
+
+	if (window.location.pathname.includes('imagenes.html')) {
+		galeria()
+	}
+	
+    if (window.location.pathname.includes('selectDestacado.html')) {
+		listar_item();
+	}
+
 })(jQuery);
 
 
