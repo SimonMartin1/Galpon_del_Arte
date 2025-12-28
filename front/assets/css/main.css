@@ -4102,8 +4102,8 @@ input, select, textarea {
 }
 @media  (min-width:500px)  and (max-width: 736px) {
 	.agregar-imagen {
-		width: 75%;
-		height: 55%;
+		width: 80%;
+		height: 70%;
 		border-radius: 10px;
 		transition: transform .3s .2s;
 		object-fit: contain;
@@ -4111,8 +4111,8 @@ input, select, textarea {
 	.close2 {
 		z-index: 1000;
 		position: absolute;
-		right: 20%;
-		top: 18%;
+		right: 14%;
+		top: 14%;
 		width: 2em;
 		cursor: pointer;
     }
