@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<link rel="icon" href="assets/images/icono3.png">
-		<title>Galpon Del Arte - Contactanos</title>
+		<title>Galpon Del Arte</title>
 		<meta charset="utf-8" lang="es" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -20,7 +20,7 @@
 				<!-- Main -->
 			<article id="main">
 				<header>
-					<h2>Contacto</h2>
+					<h2>Edicion</h2>
 				</header>
 				<section class="wrapper style5">
 					<div class="inner">
@@ -28,19 +28,29 @@
 							<h4>Seleccione las imagenes destacadas</h4>
 								<div class="row gtr-uniform">
 									<div class="col-6 col-12-xsmall">
-										<select id="">
+										<select id="select-item">
                                             <option selected disabled>Destacada</option>
                                         </select>
 									</div>
-                                    <div class="col-6 col-12-xsmall">
-										<select id="select-img">
-                                            <option selected disabled>Imagen</option>
-                                        </select>
+									<div class="col-12 hide" id="response" >
+										<div class="col-6 col-12-xsmall">
+											<input style="margin-bottom: 1.5em;" type="text" name="asunto" id="selected-tittle"  placeholder="Titulo" required /> 
+										</div>
+										
+										<div class="col-6 col-12-xsmall">
+											<select style="margin-bottom: 1.5em;" id="select-img">
+												<option selected disabled>Imagen</option>
+											</select>
+										</div>
+
+										<div class="col-12">
+											<textarea id="selected-description" placeholder="Descripcion" rows="6" required></textarea>
+										</div>
 									</div>
 									<div class="col-12">
 										<ul class="actions">
-											<li><input type="submit" value="Enviar Mensaje" class="primary"></li>
-											<li><input type="reset" value="borrar"></li>
+											<li><input type="submit" value="Guardar Cambios" class="primary"></li>
+											<li><input type="reset" value="Cancelar"></li>
 										</ul>
 									</div>
 								</div>

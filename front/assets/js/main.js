@@ -3,6 +3,7 @@
 (function($) {
 
 const IMAGENES_URL = '/Galpon_del_Arte/back/getImagenes.php'
+const DESTACADO_URL = '/Galpon_del_Arte/back/getDestacado.php'
 
 
 
@@ -112,14 +113,34 @@ async function galeria() {
 	});
 }
 
-async function seleccion_imagenes(){
+async function listar_imagenes(){
 	const data = await listar(IMAGENES_URL);
 	$('#select-img').empty();
 	data.forEach(element => {
-	const el = $('<option>').text(`${element.titulo}`);
+	const el = $('<option>').text(`${element.imagen_path}`);
 	$('#select-img').append(el);
 	});
 }
+
+async function listar_item(){
+	$('#select-item').empty();
+	for(i=1; i<13;i++){
+		const el = $('<option>').text(i);
+		$('#select-item').append(el);
+	}
+}
+
+
+async function listar_contenido(){
+	const data = await listar(DESTACADO_URL);
+	const data_filter= data.filter(e => e.id == $('#select-item').find('option:selected'));
+	$('#select-tittle').empty();
+	$('#select-description').empty();
+	$('#select-tittle').text(data_filter.titulo);
+	$('#select-description').text(data_filter.descripcion);
+	$('#response').removeClass('hide');
+}
+
 
 
 $(document).on('click', '.img-galeria', async function(){
@@ -141,8 +162,13 @@ $(document).on('click', '.close2, .img-light', function(e){
 	}, 200);
 });
 
+$('#select-item').on('change', ()=>{
+	listar_contenido()
+});
+
 galeria()
-seleccion_imagenes();
+listar_imagenes();
+listar_item();
 })(jQuery);
 
 
