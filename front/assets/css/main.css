@@ -4028,42 +4028,51 @@ input, select, textarea {
 }
 
 .img-light{
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.534);
-    transform: translate(100%);
-    transition: transform .2s ease-in-out;
+	position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.76);
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity .25s ease-in-out;
 }
 
 .agregar-imagen{
-    width: 40%;
-	height: 80%;
-    transform: scale(0);
-    border-radius: 10px;
-    transition: transform .3s .2s;
+	width: 55%;
+	height: 90%;
+	transform: scale(0);
+	transform-origin: center center;
+	border-radius: 10px;
+	transition: transform .3s .1s, opacity .2s .1s;
 	object-fit: contain;
 }
 
 .showImage{
-    transform: scale(1);
+	transform: scale(1);
+	opacity: 1;
 }
 
 .show{
-    transform: translate(0);
+	opacity: 1;
+	pointer-events: auto;
 }
 
 .close2{
-position: absolute;
-margin-left: 43em;
-margin-bottom: 35em;
+	z-index: 1000;
+	position: absolute;
+	right: 21.5em;
+	top: 2em;
     width: 40px;
     cursor: pointer;
+}
+
+.hide{
+	display: none;
 }
 
 @media  (min-width:300px)  and (max-width: 500px) {
@@ -4075,9 +4084,10 @@ margin-bottom: 35em;
 		transition: transform .3s .2s;
 	}
 	.close2 {
+		z-index: 1000;
 		position: absolute;
-		right: 1.5em;
-		top: 24em;
+		right: 5em;
+		top: 7.5em;
 		width: 2em;
 		cursor: pointer;
 
@@ -4099,9 +4109,10 @@ margin-bottom: 35em;
 		object-fit: contain;
 	}
 	.close2 {
+		z-index: 1000;
 		position: absolute;
-		right: 3.2em;
-		top: 24em;
+		right: 12em;
+		top: 7.5em;
 		width: 2em;
 		cursor: pointer;
     }
@@ -4121,8 +4132,8 @@ margin-bottom: 35em;
 	}
     .close2 {
         position: absolute;
-		right: 1.6em;
-		top: 8em;
+		right: 15em;
+		top: 4em;
 		cursor: pointer;
 		width: 2em;
 	}

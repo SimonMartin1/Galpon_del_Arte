@@ -114,18 +114,23 @@ async function galeria() {
 
 
 
-$(document).on('click', '.img-galeria', function(){
+$(document).on('click', '.img-galeria', async function(){
 	const src = $(this).attr('src');
 	$('#mostrar').attr('src', src);
-	$('.img-light').addClass('show');
-	$('.agregar-imagen').addClass('showImage');
+		setTimeout(() => {$('.img-light').addClass('show');
+		$('#header').addClass('hide');
+		$('.agregar-imagen').addClass('showImage');
+	}, 200);
 });
 
 
-$(document).on('click', '.close2, .img-light', function(){
+$(document).on('click', '.close2, .img-light', function(e){
 	if ($(e.target).hasClass('agregar-imagen')) return;
 	$('.img-light').removeClass('show');
-	$('.agregar-imagen').removeClass('showImage').attr('src', '');
+	setTimeout(() => {
+		$('.agregar-imagen').removeClass('showImage').attr('src','')
+		$('#header').removeClass('hide');
+	}, 200);
 });
 
 galeria()
