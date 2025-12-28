@@ -124,9 +124,12 @@ async function listar_imagenes(){
 
 async function listar_item(){
 	$('#select-item').empty();
-	$('#select-item').append('<option selected disabled>--Seleccionar--</option>');
+	const defaultOption = $('<option value="0" selected disabled>--Seleccionar--</option>');
+	$('#select-item').append(defaultOption);
 	for(i=1; i<13;i++){
-		const el = $('<option>').text(i);
+		const el = $('<option>')
+		.attr('value',i)
+		.text(i);
 		$('#select-item').append(el);
 	}
 }
@@ -134,7 +137,8 @@ async function listar_item(){
 
 async function listar_contenido(){
 	const data = await listar(DESTACADO_URL);
-	const data_filter= data.filter(e => e.id == $('#select-item').find('option:selected'));
+	const selectedOption= $('#select-item').find('option:selected');
+	const data_filter= data.filter(e => e.id == selectedOption.attr('value'));
 	$('#select-tittle').empty();
 	$('#select-description').empty();
 	$('#select-tittle').text(data_filter.titulo);
