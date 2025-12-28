@@ -112,6 +112,14 @@ async function galeria() {
 	});
 }
 
+async function seleccion_imagenes(){
+	const data = await listar(IMAGENES_URL);
+	$('#select-img').empty();
+	data.forEach(element => {
+	const el = $('<option>').text(`${element.titulo}`);
+	$('#select-img').append(el);
+	});
+}
 
 
 $(document).on('click', '.img-galeria', async function(){
@@ -134,7 +142,9 @@ $(document).on('click', '.close2, .img-light', function(e){
 });
 
 galeria()
+seleccion_imagenes();
 })(jQuery);
+
 
 
 
