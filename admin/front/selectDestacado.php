@@ -70,7 +70,7 @@ if (!isset($_SESSION['user_id'])) {
 									</div>
 								</div>
 						</section>
-						<section>
+						<section style="margin-bottom: 1.5em;">
 							<h4>Cargar Imagenes Galeria</h4>
 							<div class="row gtr-uniform">
 								<div class="col-12">

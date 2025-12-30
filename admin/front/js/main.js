@@ -99,7 +99,16 @@ $('#file-input').on('change', function() {
                         'class': 'image-description',
                         'data-index': index
                     }).css('margin-bottom', '10px');
-                    const destacadoCheck = $('<label>').html('<input type="checkbox" class="image-destacado" data-index="' + index + '"> Destacado').css('margin-bottom', '10px');
+                    const checkId = 'destacado-' + index;
+                    const destacadoCheck = $('<div>').css('margin-bottom', '10px').append(
+                        $('<input>').attr({
+                            'type': 'checkbox',
+                            'id': checkId,
+                            'class': 'image-destacado',
+                            'data-index': index
+                        }),
+                        $('<label>').attr('for', checkId).text(' Destacado')
+                    );
                     const removeBtn = $('<button>').text('Eliminar').addClass('button small').css('margin-bottom', '10px');
                     removeBtn.on('click', function() {
                         imgDiv.remove();
