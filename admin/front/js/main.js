@@ -80,13 +80,26 @@ $('#file-input').on('change', function() {
             if (file.type.startsWith('image/')) {
                 const reader = new FileReader();
                 reader.onload = function(e) {
-                    const imgDiv = $('<div class="col-3 col-6-xsmall col-12-xxsmall">');
+                    const imgDiv = $('<div class="col-6 col-12-xsmall" style="margin-bottom: 2em;">');
                     const img = $('<img>').attr('src', e.target.result).css({
                         'width': '100%',
                         'height': 'auto',
                         'border-radius': '5px',
                         'margin-bottom': '10px'
                     });
+                    const titleInput = $('<input>').attr({
+                        'type': 'text',
+                        'placeholder': 'Título',
+                        'class': 'image-title',
+                        'data-index': index
+                    }).css('margin-bottom', '10px');
+                    const descInput = $('<textarea>').attr({
+                        'placeholder': 'Descripción',
+                        'rows': '3',
+                        'class': 'image-description',
+                        'data-index': index
+                    }).css('margin-bottom', '10px');
+                    const destacadoCheck = $('<label>').html('<input type="checkbox" class="image-destacado" data-index="' + index + '"> Destacado').css('margin-bottom', '10px');
                     const removeBtn = $('<button>').text('Eliminar').addClass('button small').css('margin-bottom', '10px');
                     removeBtn.on('click', function() {
                         imgDiv.remove();
@@ -102,7 +115,7 @@ $('#file-input').on('change', function() {
                             uploadBtn.prop('disabled', true);
                         }
                     });
-                    imgDiv.append(img).append(removeBtn);
+                    imgDiv.append(img).append(titleInput).append(descInput).append(destacadoCheck).append(removeBtn);
                     imagePreview.append(imgDiv);
                 };
                 reader.readAsDataURL(file);
@@ -116,18 +129,22 @@ $('#file-input').on('change', function() {
 
 $('#upload-btn').on('click', async function() {
     const files = $('#file-input')[0].files;
-    const titulo = $('#image-title').val();
-    const descripcion = $('#image-description').val();
-    const prefijo = $('#image-path').val();
-
     const formData = new FormData();
 
     Array.from(files).forEach(file => {
         formData.append('images[]', file);
     });
-    formData.append('titulo', titulo);
-    formData.append('descripcion', descripcion);
-    formData.append('prefijo', prefijo);
+
+    // Recopilar títulos, descripciones, destacados
+    $('.image-title').each(function() {
+        formData.append('titulos[]', $(this).val());
+    });
+    $('.image-description').each(function() {
+        formData.append('descripciones[]', $(this).val());
+    });
+    $('.image-destacado').each(function() {
+        formData.append('destacados[]', $(this).is(':checked') ? 1 : 0);
+    });
 
     try {
         const response = await fetch('/Galpon_del_Arte/admin/back/uploadImages.php', {
@@ -139,9 +156,6 @@ $('#upload-btn').on('click', async function() {
         if (response.ok) {
             alert('Imágenes subidas correctamente');
             $('#file-input').val('');
-            $('#image-title').val('');
-            $('#image-description').val('');
-            $('#image-path').val('');
             $('#preview-container').hide();
             $('#upload-btn').prop('disabled', true);
             // Opcional: recargar lista de imágenes

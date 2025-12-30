@@ -12,25 +12,38 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 require 'auth.php';
 require '../../back/conexion.php';
 
-$titulo = $_POST['titulo'] ?? '';
-$descripcion = $_POST['descripcion'] ?? '';
-$prefijo = $_POST['prefijo'] ?? '';
-
-if (!isset($_FILES['images'])) {
+if (!isset($_FILES['images']) || !isset($_POST['titulos']) || !isset($_POST['descripciones']) || !isset($_POST['destacados'])) {
     http_response_code(400);
-    echo json_encode(["error" => "No se encontraron imágenes"]);
+    echo json_encode(["error" => "Datos incompletos"]);
     exit();
 }
 
 $images = $_FILES['images'];
-$uploadDir = '../../front/assets/images/'; 
+$titulos = $_POST['titulos'];
+$descripciones = $_POST['descripciones'];
+$destacados = $_POST['destacados'];
+
+$uploadDir = '../../front/assets/images/';
+
+// Obtener el último ID
+try {
+    $stmt = $pdo->query("SELECT MAX(id) AS max_id FROM imagenes");
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    $maxId = $result['max_id'] ?? 0;
+} catch (PDOException $e) {
+    http_response_code(500);
+    echo json_encode(["error" => "Error al obtener el último ID: " . $e->getMessage()]);
+    exit();
+}
 
 $uploadedFiles = [];
 
 foreach ($images['name'] as $key => $name) {
     if ($images['error'][$key] === UPLOAD_ERR_OK) {
         $tmpName = $images['tmp_name'][$key];
-        $fileName = $prefijo . basename($name);
+        $extension = pathinfo($name, PATHINFO_EXTENSION);
+        $newId = $maxId + $key + 1;
+        $fileName = $newId . '.' . $extension;
         $filePath = $uploadDir . $fileName;
 
         // Verificar si es una imagen
@@ -43,8 +56,11 @@ foreach ($images['name'] as $key => $name) {
         if (move_uploaded_file($tmpName, $filePath)) {
             // Insertar en base de datos
             try {
-                $stmt = $pdo->prepare("INSERT INTO imagenes (imagen_path, titulo, descripcion) VALUES (?, ?, ?)");
-                $stmt->execute([$fileName, $titulo, $descripcion]);
+                $titulo = $titulos[$key] ?? '';
+                $descripcion = $descripciones[$key] ?? '';
+                $destacado = $destacados[$key] ?? 0;
+                $stmt = $pdo->prepare("INSERT INTO imagenes (imagen_path, titulo, descripcion, destacado) VALUES (?, ?, ?, ?)");
+                $stmt->execute([$fileName, $titulo, $descripcion, $destacado]);
                 $uploadedFiles[] = $fileName;
             } catch (PDOException $e) {
                 // Si falla la BD, eliminar archivo
