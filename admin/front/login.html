@@ -24,28 +24,31 @@
 				</header>
 				<section class="wrapper style5">
 					<div class="inner">
-						<section class="formulario" >
+						<form id="login-form" class="formulario" >
 							<h3 style="text-align: center;">Iniciar Sesion</h3>
 								<div class="row gtr-uniform">
 									<div class="col-12" id="response" >
 										<div class="col-6 col-12-xsmall">
-											<input style="margin-bottom: 1.5em;" type="text" name="asunto" id="selected-titt"  placeholder="Usuario" required /> 
+											<input style="margin-bottom: 1.5em;" type="text" name="asunto" id="log-user"  placeholder="Usuario" required /> 
 										</div>
 										<div class="col-6 col-12-xsmall">
-											<input style="margin-bottom: 1.5em;" type="text" name="asunto" id="selected-titt"  placeholder="Contraseña" required /> 
+											<input style="margin-bottom: 1.5em;" type="text" name="asunto" id="log-pass"  placeholder="Contraseña" required /> 
 										</div>
 									</div>
 									<div class="col-12">
 										<ul class="actions log-btn">
-											<li><input type="submit" id="aplicar" value="Acceder" class="primary btn-log"></li>
+											<li><input type="submit" id="aplicar" value="Acceder" class="primary btn-log" id="login-btn"></li>
 										</ul>
+										<p style="text-align: center;" class="hide" id="msj-error"></p>
 									</div>
 								</div>
-						</section>
+						</form>
 					</div>
 				</section>
 			</article>
 		<!-- Scripts -->
 			<script src="../../front/assets/js/jquery.min.js"></script>
+			<script src="js/login.js"></script>
+			<script src="js/main.js"></script>
 	</body>
 </html>
