@@ -24,14 +24,16 @@ if (!isset($_SESSION['user_id'])) {
 		<!-- Page Wrapper -->
 		<div id="page-wrapper">
 				<!-- Header -->
-			<header id="header">
-				<img src="../../front/assets/images/icono3.png"  alt="" class="navegacion"  >
-				<h1><a href="../../front/index.html" class="title1">Galpon Del Arte</a></h1>
-						<nav id="nav">
-							<img src="../front/assets/images/logout.png" alt="">
-							<button type="submit" id="log-out" class="primary">
-						</nav>
-			</header>
+			<header id="header" style="display: flex; align-items: center; justify-content: space-between; padding-right:.6em">
+    <div style="display: flex; align-items: center;">
+        <img src="../../front/assets/images/icono3.png" alt="" class="navegacion">
+        <h1><a href="../../front/index.html" class="title1">Galpon Del Arte</a></h1>
+    </div>
+    <button style="display: flex; align-items: center; justify-content: center; height: 3em; padding: 0 1em; background: none; border: none; cursor: pointer;" id="log-out">
+        <img style="margin-right: 0.5em;" src="../../front/assets/images/logout.png" alt="">
+        <h5 style="display: inline-block; box-shadow: none; padding: 0; letter-spacing: .4em; margin: 0;">Logout</h5>
+    </button>
+</header>
 				<!-- Main -->
 			<article id="main">
 				<header>
@@ -40,7 +42,7 @@ if (!isset($_SESSION['user_id'])) {
 				<section class="wrapper style5">
 					<div class="inner">
 						<section>
-							<h4>Seleccione las imagenes destacadas</h4>
+							<h4>Imagenes Destacadas</h4>
 								<div class="row gtr-uniform">
 									<div class="col-6 col-12-xsmall">
 										<select id="select-item">
