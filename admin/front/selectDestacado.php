@@ -73,8 +73,17 @@ if (!isset($_SESSION['user_id'])) {
 						<section>
 							<h4>Cargar Imagenes Galeria</h4>
 							<div class="row gtr-uniform">
-								<div class="col-6 col-12-xsmall">
-									<input style="margin-bottom: 1.5em;" type="text" name="asunto" id="selected-titt"  placeholder="Titulo" required /> 
+								<div class="col-12">
+									<input type="file" id="file-input" multiple accept="image/*" style="margin-bottom: 1.5em;" />
+								</div>
+								<div class="col-12" id="preview-container" style="display: none;">
+									<h5>Preview de Imágenes:</h5>
+									<div id="image-preview" class="row gtr-uniform"></div>
+								</div>
+								<div class="col-12">
+									<ul class="actions">
+										<li><input type="button" id="upload-btn" value="Subir Imágenes" class="primary" disabled /></li>
+									</ul>
 								</div>
 							</div>
 						</section>
