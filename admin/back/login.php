@@ -7,7 +7,7 @@ session_start();
 header("Content-Type: application/json");
 
 
-require '/Galpon_del_Arte/back/conexion.php';
+require '../../back/conexion.php';
 
 
 $json = file_get_contents('php://input');
