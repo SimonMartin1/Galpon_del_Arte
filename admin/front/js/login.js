@@ -29,7 +29,7 @@ form.on('submit', async (e) => {
         const data = await response.json();
 
         if (data.status === 'success') {
-            window.location.href = '../selectDestacado.php'; 
+            window.location.href = '/Galpon_del_Arte/admin/front/selectDestacado.php'; 
         } else {
             // LOGIN INCORRECTO
             mostrarError(data.message || 'Error desconocido');
