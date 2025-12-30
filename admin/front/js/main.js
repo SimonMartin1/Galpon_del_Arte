@@ -80,7 +80,7 @@ $('#file-input').on('change', function() {
             if (file.type.startsWith('image/')) {
                 const reader = new FileReader();
                 reader.onload = function(e) {
-                    const imgDiv = $('<div class="col-6 col-12-xsmall" style="margin-bottom: 2em;">');
+                    const imgDiv = $('<div class="col-6 col-12-xsmall preview-item" style="margin-bottom: 2em;">');
                     const img = $('<img>').attr('src', e.target.result).css({
                         'width': '100%',
                         'height': 'auto',
