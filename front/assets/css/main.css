@@ -2646,7 +2646,7 @@ input, select, textarea {
 			position: relative;
 			text-align: left;
 			width: 50%;
-			height: 50%;
+			min-height: 300px;
 		}
 
 
@@ -3089,7 +3089,7 @@ input, select, textarea {
 
 		.wrapper.style3 {
 			background-color: #e79532;
-			color: #d3d4e4;
+			color: #ffffff;
 		}
 
 			.wrapper.style3 strong, .wrapper.style3 b {
