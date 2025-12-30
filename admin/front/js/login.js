@@ -31,7 +31,7 @@ form.on('submit', async (e) => {
         if (data.status === 'success') {
             // ¡LOGIN CORRECTO!
             // Redirigimos al panel principal
-            window.location.href = '../selecDestacado.html'; 
+            window.location.href = '../selectDestacado.html'; 
         } else {
             // LOGIN INCORRECTO
             mostrarError(data.message || 'Error desconocido');
