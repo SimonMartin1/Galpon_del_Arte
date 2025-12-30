@@ -4101,8 +4101,8 @@ input, select, textarea {
 .close2{
 	z-index: 1000;
 	position: absolute;
-	right: 28%;
-	top: 4.5%;
+	right: 10px;
+	top: 10px;
     width: 40px;
     cursor: pointer;
 }
@@ -4122,9 +4122,9 @@ input, select, textarea {
 	.close2 {
 		z-index: 1000;
 		position: absolute;
-		right: 10%;
-		top: 18%;
-		width: 2em;
+		right: 10px;
+		top: 10px;
+		width: 40px;
 		cursor: pointer;
 
 	}
@@ -4147,9 +4147,9 @@ input, select, textarea {
 	.close2 {
 		z-index: 1000;
 		position: absolute;
-		right: 14%;
-		top: 14%;
-		width: 2em;
+		right: 10px;
+		top: 10px;
+		width: 40px;
 		cursor: pointer;
     }
 	
@@ -4168,10 +4168,10 @@ input, select, textarea {
 	}
     .close2 {
         position: absolute;
-		right: 28%;
-		top: 4.5%;
+		right: 10px;
+		top: 10px;
 		cursor: pointer;
-		width: 2em;
+		width: 40px;
 	}
 	
 } 

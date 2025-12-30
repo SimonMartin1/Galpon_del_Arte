@@ -3,7 +3,7 @@
 (function($) {
 
 const IMAGENES_URL = '/Galpon_del_Arte/back/getImagenes.php'
-
+const DESTACADO_URL = '/Galpon_del_Arte/back/getDestacado.php'
 
 
 	var	$window = $(window),
