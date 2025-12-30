@@ -59,7 +59,7 @@ foreach ($images['name'] as $key => $name) {
                 $titulo = $titulos[$key] ?? '';
                 $descripcion = $descripciones[$key] ?? '';
                 $destacado = $destacados[$key] ?? 0;
-                $stmt = $pdo->prepare("INSERT INTO imagenes (imagen_path, titulo, descripcion, destacado) VALUES (?, ?, ?, ?)");
+                $stmt = $pdo->prepare("INSERT INTO imagenes (imagen_path, titulo, descripcion, destacada) VALUES (?, ?, ?, ?)");
                 $stmt->execute([$fileName, $titulo, $descripcion, $destacado]);
                 $uploadedFiles[] = $fileName;
             } catch (PDOException $e) {
