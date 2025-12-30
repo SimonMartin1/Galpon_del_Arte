@@ -63,7 +63,7 @@ $('#log-out').on('click', async () => {
         window.location.href = '/Galpon_del_Arte/admin/front/login.html';
     });
 
-// Funcionalidad de carga de imágenes
+
 $('#file-input').on('change', function() {
     const files = this.files;
     const previewContainer = $('#preview-container');
@@ -116,11 +116,18 @@ $('#file-input').on('change', function() {
 
 $('#upload-btn').on('click', async function() {
     const files = $('#file-input')[0].files;
+    const titulo = $('#image-title').val();
+    const descripcion = $('#image-description').val();
+    const prefijo = $('#image-path').val();
+
     const formData = new FormData();
 
     Array.from(files).forEach(file => {
         formData.append('images[]', file);
     });
+    formData.append('titulo', titulo);
+    formData.append('descripcion', descripcion);
+    formData.append('prefijo', prefijo);
 
     try {
         const response = await fetch('/Galpon_del_Arte/admin/back/uploadImages.php', {
@@ -132,6 +139,9 @@ $('#upload-btn').on('click', async function() {
         if (response.ok) {
             alert('Imágenes subidas correctamente');
             $('#file-input').val('');
+            $('#image-title').val('');
+            $('#image-description').val('');
+            $('#image-path').val('');
             $('#preview-container').hide();
             $('#upload-btn').prop('disabled', true);
             // Opcional: recargar lista de imágenes

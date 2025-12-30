@@ -74,11 +74,21 @@ if (!isset($_SESSION['user_id'])) {
 							<h4>Cargar Imagenes Galeria</h4>
 							<div class="row gtr-uniform">
 								<div class="col-12">
-									<input type="file" id="file-input" multiple accept="image/*" style="margin-bottom: 1.5em;" />
+									<label for="file-input" class="button" style="margin-bottom: 1.5em;">Seleccionar Archivos</label>
+									<input type="file" id="file-input" multiple accept="image/*" style="display: none;" />
 								</div>
 								<div class="col-12" id="preview-container" style="display: none;">
 									<h5>Preview de Imágenes:</h5>
 									<div id="image-preview" class="row gtr-uniform"></div>
+								</div>
+								<div class="col-6 col-12-xsmall">
+									<input type="text" id="image-title" placeholder="Título para las imágenes" style="margin-bottom: 1.5em;" />
+								</div>
+								<div class="col-6 col-12-xsmall">
+									<input type="text" id="image-description" placeholder="Descripción para las imágenes" style="margin-bottom: 1.5em;" />
+								</div>
+								<div class="col-12">
+									<textarea id="image-path" placeholder="Prefijo para image_path (opcional)" rows="2" style="margin-bottom: 1.5em;"></textarea>
 								</div>
 								<div class="col-12">
 									<ul class="actions">
