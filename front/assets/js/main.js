@@ -3,7 +3,6 @@
 (function($) {
 
 const IMAGENES_URL = '/Galpon_del_Arte/back/getImagenes.php'
-const DESTACADO_URL = '/Galpon_del_Arte/back/getDestacado.php'
 
 
 
@@ -113,41 +112,6 @@ async function galeria() {
 	});
 }
 
-async function listar_imagenes(){
-	const data = await listar(IMAGENES_URL);
-	$('#select-img').empty();
-	data.forEach(element => {
-	const el = $('<option>').text(`${element.imagen_path}`);
-	$('#select-img').append(el);
-	});
-}
-
-async function listar_item(){
-	const data = await listar(DESTACADO_URL);
-	$('#select-item').empty();
-	const defaultOption = $('<option value="0" selected disabled>--Seleccionar--</option>');
-	$('#select-item').append(defaultOption);
-	data.forEach(e=>{
-		const el = $('<option>')
-		.attr('value',e.id)
-		.text(e.id+' - '+e.titulo);
-		$('#select-item').append(el);
-	});
-}
-
-
-async function listar_contenido(){
-	const data = await listar(DESTACADO_URL);
-	const selectedOption= $('#select-item').find('option:selected');
-	const data_filter= data.filter(e => e.id == selectedOption.attr('value'));
-	$('#selected-titt').empty();
-	$('#selected-description').empty();
-	$('#selected-titt').val(data_filter[0].titulo);
-	$('#selected-description').text(data_filter[0].descripcion);
-	listar_imagenes();
-	$('#response').removeClass('hide');
-}
-
 async function mostrar_destacado(){
 	const data = await listar(DESTACADO_URL);
 	data.forEach(e=> {
@@ -178,13 +142,9 @@ $(document).on('click', '.close2, .img-light', function(e){
 	}, 200);
 });
 
-$('#select-item').on('change', async()=>{
-	listar_contenido()
-});
-
 	mostrar_destacado();
 	galeria()
-	listar_item();
+
 
 })(jQuery);
 
