@@ -2372,6 +2372,14 @@ input, select, textarea {
 
 		}
 
+.log-btn{
+	justify-content: center;
+}
+
+.btn-log{
+	width: 15em;
+}
+
 /* Icons */
 
 	ul.icons {

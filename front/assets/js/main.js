@@ -130,7 +130,7 @@ async function listar_item(){
 	data.forEach(e=>{
 		const el = $('<option>')
 		.attr('value',e.id)
-		.text(e.id+'- '+e.titulo);
+		.text(e.id+' - '+e.titulo);
 		$('#select-item').append(el);
 	});
 }
@@ -154,7 +154,7 @@ async function mostrar_destacado(){
 		$('.'+'feature-tittle'+e.id).empty()
 		$('.'+'feature-tittle'+e.id).text(e.titulo)
 		$('.'+'feature-text'+e.id).empty()
-		$('.'+'feature-text'+e.id).text(e.descripcion)
+		$('.'+'feature-text'+e.id).html(e.descripcion)
 	});
 }
 
