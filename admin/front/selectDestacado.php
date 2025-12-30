@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: /Galpon_del_Arte/admin/front/login.html");
+    exit(); 
+}
+?>
+
+
 <!DOCTYPE HTML>
 
 <html>
@@ -16,6 +27,10 @@
 			<header id="header">
 				<img src="../../front/assets/images/icono3.png"  alt="" class="navegacion"  >
 				<h1><a href="../../front/index.html" class="title1">Galpon Del Arte</a></h1>
+						<nav id="nav">
+							<img src="../front/assets/images/logout.png" alt="">
+							<button type="submit" id="log-out" class="primary">
+						</nav>
 			</header>
 				<!-- Main -->
 			<article id="main">

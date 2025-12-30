@@ -58,6 +58,11 @@ $('#select-item').on('change', async()=>{
 	listar_contenido()
 });
 
+$('#log-out').on('click', async () => {
+        await fetch('/Galpon_del_Arte/admin/back/logout.php');
+        window.location.href = '/Galpon_del_Arte/admin/front/login.html';
+    });
+
 
 listar_item();
 
