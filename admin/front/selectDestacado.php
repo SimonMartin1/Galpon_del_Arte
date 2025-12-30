@@ -70,6 +70,14 @@ if (!isset($_SESSION['user_id'])) {
 									</div>
 								</div>
 						</section>
+						<section>
+							<h4>Cargar Imagenes Galeria</h4>
+							<div class="row gtr-uniform">
+								<div class="col-6 col-12-xsmall">
+									<input style="margin-bottom: 1.5em;" type="text" name="asunto" id="selected-titt"  placeholder="Titulo" required /> 
+								</div>
+							</div>
+						</section>
 					</div>
 				</section>
 			</article>
