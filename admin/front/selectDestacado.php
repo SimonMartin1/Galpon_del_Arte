@@ -31,7 +31,7 @@ if (!isset($_SESSION['user_id'])) {
     </div>
     <button style="display: flex; align-items: center; justify-content: center; height: 3em; padding: 0 1em; background: none; border: none; cursor: pointer;" id="log-out">
         <img style="margin-right: 0.5em;" src="../../front/assets/images/logout.png" alt="">
-        <h5 style="display: inline-block; box-shadow: none; padding: 0; letter-spacing: .4em; margin: 0;">Logout</h5>
+        <h5 style="display: inline-block; box-shadow: none; padding: 0; letter-spacing: .4em; margin: 0;">Cerrar Sesion</h5>
     </button>
 </header>
 				<!-- Main -->
