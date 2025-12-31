@@ -2652,7 +2652,7 @@ input, select, textarea {
 
 		.image-feature1 {
 			width: 90%;
-			height: 70%;
+			min-height: 300px;
 			object-fit: contain;
 		}
 
