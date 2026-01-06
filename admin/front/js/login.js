@@ -17,7 +17,7 @@ form.on('submit', async (e) => {
     try {
         // 3. Enviamos la petición al Backend
         // Ajusta la ruta si tu archivo login.php está en otro lado
-        const response = await fetch('/Galpon_del_Arte/admin/back/login.php', {
+        const response = await fetch('/admin/back/login.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json' // Importante para que PHP entienda el JSON
@@ -29,7 +29,7 @@ form.on('submit', async (e) => {
         const data = await response.json();
 
         if (data.status === 'success') {
-            window.location.href = '/Galpon_del_Arte/admin/front/selectDestacado.php'; 
+            window.location.href = '/admin/front/selectDestacado.php'; 
         } else {
             // LOGIN INCORRECTO
             mostrarError(data.message || 'Error desconocido');

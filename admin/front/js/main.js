@@ -2,8 +2,8 @@
 
 (function($) {
 
-const IMAGENES_URL = '/Galpon_del_Arte/back/getImagenes.php'
-const DESTACADO_URL = '/Galpon_del_Arte/back/getDestacado.php'
+const IMAGENES_URL = '/back/getImagenes.php'
+const DESTACADO_URL = '/back/getDestacado.php'
 
 
 async function listar(URL){
