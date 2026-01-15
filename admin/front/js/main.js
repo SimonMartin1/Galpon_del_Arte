@@ -59,8 +59,8 @@ $('#select-item').on('change', async()=>{
 });
 
 $('#log-out').on('click', async () => {
-        await fetch('/Galpon_del_Arte/admin/back/logout.php');
-        window.location.href = '/Galpon_del_Arte/admin/front/login.html';
+        await fetch('/admin/back/logout.php');
+        window.location.href = '/admin/front/login.html';
     });
 
 
@@ -156,7 +156,7 @@ $('#upload-btn').on('click', async function() {
     });
 
     try {
-        const response = await fetch('/Galpon_del_Arte/admin/back/uploadImages.php', {
+        const response = await fetch('/admin/back/uploadImages.php', {
             method: 'POST',
             body: formData
         });
