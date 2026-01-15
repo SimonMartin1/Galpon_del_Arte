@@ -13,12 +13,12 @@ if (!isset($_SESSION['user_id'])) {
 
 <html>
 	<head>
-		<link rel="icon" href="../../front/assets/images/icono3.png">
+		<link rel="icon" href="../../assets/images/icono3.png">
 		<title>Galpon Del Arte</title>
 		<meta charset="utf-8" lang="es" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="../../front/assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="../../front/assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
 		<!-- Page Wrapper -->
@@ -26,11 +26,11 @@ if (!isset($_SESSION['user_id'])) {
 				<!-- Header -->
 			<header id="header" style="display: flex; align-items: center; justify-content: space-between; padding-right:.6em">
     <div style="display: flex; align-items: center;">
-        <img src="../../front/assets/images/icono3.png" alt="" class="navegacion">
-        <h1><a href="../../front/index.html" class="title1">Galpon Del Arte</a></h1>
+        <img src="../../assets/images/icono3.png" alt="" class="navegacion">
+        <h1><a href="../../index.html" class="title1">Galpon Del Arte</a></h1>
     </div>
     <button style="display: flex; align-items: center; justify-content: center; height: 3em; padding: 0 1em; background: none; border: none; cursor: pointer;" id="log-out">
-        <img style="margin-right: 0.5em;" src="../../front/assets/images/logout.png" alt="">
+        <img style="margin-right: 0.5em;" src="../../assets/images/logout.png" alt="">
         <h5 style="display: inline-block; box-shadow: none; padding: 0; letter-spacing: .4em; margin: 0;">Cerrar Sesion</h5>
     </button>
 </header>
@@ -92,7 +92,7 @@ if (!isset($_SESSION['user_id'])) {
 				</section>
 			</article>
 		<!-- Scripts -->
-			<script src="../../front/assets/js/jquery.min.js"></script>
+			<script src="../../assets/js/jquery.min.js"></script>
 			<script src="js/main.js"></script>
 	</body>
 </html>

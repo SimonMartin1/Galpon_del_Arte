@@ -23,7 +23,7 @@ $titulos = $_POST['titulos'];
 $descripciones = $_POST['descripciones'];
 $destacados = $_POST['destacados'];
 
-$uploadDir = '../../front/assets/images/';
+$uploadDir = '../../assets/images/';
 
 // Obtener el último ID
 try {
