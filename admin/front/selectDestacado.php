@@ -13,7 +13,7 @@ if (!isset($_SESSION['user_id'])) {
 
 <html>
 	<head>
-		<link rel="icon" href="../../assets/images/icono3.png">
+		<link rel="icon" href="../../assets/images/icono3.webp">
 		<title>Galpon Del Arte</title>
 		<meta charset="utf-8" lang="es" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -26,7 +26,7 @@ if (!isset($_SESSION['user_id'])) {
 				<!-- Header -->
 			<header id="header" style="display: flex; align-items: center; justify-content: space-between; padding-right:.6em">
     <div style="display: flex; align-items: center;">
-        <img src="../../assets/images/icono3.png" alt="" class="navegacion">
+        <img src="../../assets/images/icono3.webp" alt="" class="navegacion">
         <h1><a href="../../index.html" class="title1">Galpon Del Arte</a></h1>
     </div>
     <button style="display: flex; align-items: center; justify-content: center; height: 3em; padding: 0 1em; background: none; border: none; cursor: pointer;" id="log-out">
