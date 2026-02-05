@@ -143,7 +143,10 @@ $(document).on('click', '.close2, .img-light', function(e){
 });
 
 	mostrar_destacado();
-	galeria()
+	
+	if (window.location.pathname.includes('imagenes.html') || window.location.pathname.endsWith('/imagenes')) {
+		galeria();
+	}
 
 
 })(jQuery);
